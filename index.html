@@ -1,205 +1,285 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umbra ($UMB)</title>
+    <title>Umbra ($UMB) - Live on Base</title>
     <style>
         body {
             background-color: #0b0f19;
             color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            margin: 0;
         }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: #111827;
+        .card {
+            background-color: #111827;
             border: 1px solid #1f2937;
             border-radius: 16px;
             padding: 30px;
+            width: 100%;
+            max-width: 500px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            position: relative;
         }
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            font-size: 13px;
+        }
+        .status {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
             color: #10b981;
         }
-        .lang-select {
-            background: #1f2937;
-            color: white;
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        select {
+            background-color: #1f2937;
+            color: #ffffff;
             border: 1px solid #374151;
-            padding: 4px 8px;
-            border-radius: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
             cursor: pointer;
         }
         h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-            color: #60a5fa;
-            margin-top: 10px;
+            text-align: center;
+            margin: 10px 0 5px 0;
+            font-size: 24px;
         }
-        p.subtitle {
+        .subtitle {
+            text-align: center;
             color: #9ca3af;
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 25px;
             line-height: 1.4;
         }
-        .section {
-            background: #1f2937;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .section h2 {
-            font-size: 16px;
-            margin-top: 0;
-            color: #93c5fd;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #d1d5db;
         }
         .btn-group {
             display: flex;
             gap: 10px;
-            margin-top: 15px;
+            margin-bottom: 25px;
         }
         .btn {
             flex: 1;
             padding: 12px;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
             text-align: center;
-            transition: background 0.2s;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 14px;
+            transition: background 0.2s;
         }
         .btn-primary {
-            background: #2563eb;
+            background-color: #2563eb;
             color: white;
         }
         .btn-primary:hover {
-            background: #1d4ed8;
+            background-color: #1d4ed8;
         }
         .btn-secondary {
-            background: #374151;
+            background-color: #374151;
             color: white;
         }
         .btn-secondary:hover {
-            background: #4b5563;
+            background-color: #4b5563;
         }
-        .info-row {
+        .box {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .row {
             display: flex;
             justify-content: space-between;
             font-size: 14px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #374151;
-            padding-bottom: 8px;
         }
-        .info-row span:last-child {
-            color: #d1d5db;
+        .row:last-child {
+            margin-bottom: 0;
+        }
+        .label {
+            color: #9ca3af;
+        }
+        .value {
             font-weight: 500;
         }
         .contract-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            margin-top: 10px;
             background: #111827;
-            padding: 10px 12px;
+            padding: 10px;
             border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #374151;
+        }
+        .contract-address {
             font-family: monospace;
-            font-size: 12px;
+            font-size: 11px;
             color: #9ca3af;
-            margin-top: 8px;
-            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 10px;
         }
         .copy-btn {
             background: #374151;
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 12px;
-            font-weight: bold;
         }
         .copy-btn:hover {
             background: #4b5563;
+        }
+        .about-text {
+            font-size: 13px;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- En-tête avec statut et langue -->
+    <div class="card">
+        <!-- Top bar with status & language selector -->
         <div class="header-top">
-            <span>🟢 Live on Base</span>
-            <select class="lang-select">
-                <option value="fr">🇫🇷 Français</option>
-                <option value="en">🇬🇧 English</option>
+            <div class="status">
+                <span class="status-dot"></span> Live on Base
+            </div>
+            <select id="langSelect" onchange="changeLanguage()">
+                <option value="en" selected>English</option>
+                <option value="fr">Français</option>
             </select>
         </div>
 
-        <h1>Umbra ($UMB)</h1>
-        <p class="subtitle">Le token communautaire et décentralisé propulsé sur le réseau Base.<br>Rapide, sécurisé et à frais ultra-réduits.</p>
+        <!-- Main Title -->
+        <h1 id="title">Umbra ($UMB)</h1>
+        <p class="subtitle" id="subtitle">The decentralized community token powered by the Base network. Fast, secure, and ultra-low fees.</p>
 
-        <!-- Liens Officiels -->
-        <div class="section">
-            <h2>🚀 Liens Officiels</h2>
-            <div class="btn-group">
-                <a href="https://app.uniswap.org/#/swap?outputCurrency=0x153dc7b7C511D186d0AD6Fa338e12492E8b1DA77" target="_blank" class="btn btn-primary">Acheter sur Uniswap</a>
-                <a href="https://x.com" target="_blank" class="btn btn-secondary">Communauté X (Twitter)</a>
+        <!-- Official Links -->
+        <div class="section-title" id="linksTitle">🚀 Official Links</div>
+        <div class="btn-group">
+            <a href="https://app.uniswap.org/#/swap?outputCurrency=0x153dc7b7C511D186d0AD6Fa338e12492E8b1DA77" target="_blank" class="btn btn-primary" id="btnBuy">Buy on Uniswap</a>
+            <a href="https://twitter.com" target="_blank" class="btn btn-secondary" id="btnSocial">X (Twitter) Community</a>
+        </div>
+
+        <!-- Tokenomics & Contract Box -->
+        <div class="box">
+            <div class="section-title" id="tokenomicsTitle">📊 Tokenomics & Contract (Base)</div>
+            <div class="row">
+                <span class="label" id="netLabel">Network</span>
+                <span class="value">Base (Chain ID: 8453)</span>
+            </div>
+            <div class="row">
+                <span class="label" id="symLabel">Symbol</span>
+                <span class="value">$UMB</span>
+            </div>
+            <div class="row">
+                <span class="label" id="supLabel">Total Supply</span>
+                <span class="value">1,000,000 UMB (Fixed)</span>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <span class="label" style="font-size: 12px;" id="contractLabel">Contract Address:</span>
+                <div class="contract-box">
+                    <span class="contract-address" id="contractAddr">0x153dc7b7C511D186d0AD6Fa338e12492E8b1DA77</span>
+                    <button class="copy-btn" onclick="copyContract()" id="copyBtn">Copy</button>
+                </div>
             </div>
         </div>
 
-        <!-- Tokenomics & Contrat -->
-        <div class="section">
-            <h2>📊 Tokenomics & Contrat (Base)</h2>
-            <div class="info-row">
-                <span>Réseau</span>
-                <span>Base (Chain ID: 8453)</span>
-            </div>
-            <div class="info-row">
-                <span>Symbole</span>
-                <span>$UMB</span>
-            </div>
-            <div class="info-row">
-                <span>Supply Totale</span>
-                <span>1 000 000 UMB (Fixe)</span>
-            </div>
-            <div style="font-size: 13px; color: #9ca3af; margin-top: 10px;">Adresse du Contrat :</div>
-            <div class="contract-box">
-                <span id="contractAddress">0x153dc7b7C511D186d0AD6Fa338e12492E8b1DA77</span>
-                <button class="copy-btn" onclick="copyContract()">Copier</button>
-            </div>
-        </div>
-
-        <!-- À propos -->
-        <div class="section" style="margin-bottom: 0;">
-            <h2>ℹ️ À propos du projet</h2>
-            <p style="font-size: 13px; color: #9ca3af; line-height: 1.5; margin: 0;">
-                Umbra ($UMB) est un projet axé à 100% sur la communauté sur le réseau Base. Notre mission est de dynamiser l'écosystème à travers une liquidité solide sur Uniswap et une transparence totale.
+        <!-- About Project Box -->
+        <div class="box">
+            <div class="section-title" id="aboutTitle">ℹ️ About the Project</div>
+            <p class="about-text" id="aboutText">
+                Umbra ($UMB) is a 100% community-focused project on the Base network. Our mission is to energize the ecosystem through robust liquidity on Uniswap and total transparency.
             </p>
         </div>
     </div>
 
     <script>
+        // Simple script to handle language switching dynamically
+        const translations = {
+            en: {
+                subtitle: "The decentralized community token powered by the Base network. Fast, secure, and ultra-low fees.",
+                linksTitle: "🚀 Official Links",
+                btnBuy: "Buy on Uniswap",
+                btnSocial: "X (Twitter) Community",
+                tokenomicsTitle: "📊 Tokenomics & Contract (Base)",
+                netLabel: "Network",
+                symLabel: "Symbol",
+                supLabel: "Total Supply",
+                contractLabel: "Contract Address:",
+                copyBtn: "Copy",
+                aboutTitle: "ℹ️ About the Project",
+                aboutText: "Umbra ($UMB) is a 100% community-focused project on the Base network. Our mission is to energize the ecosystem through robust liquidity on Uniswap and total transparency."
+            },
+            fr: {
+                subtitle: "Le token communautaire et décentralisé propulsé sur le réseau Base. Rapide, sécurisé et à frais ultra-réduits.",
+                linksTitle: "🚀 Liens Officiels",
+                btnBuy: "Acheter sur Uniswap",
+                btnSocial: "Communauté X (Twitter)",
+                tokenomicsTitle: "📊 Tokenomics & Contrat (Base)",
+                netLabel: "Réseau",
+                symLabel: "Symbole",
+                supLabel: "Supply Totale",
+                contractLabel: "Adresse du Contrat :",
+                copyBtn: "Copier",
+                aboutTitle: "ℹ️ À propos du projet",
+                aboutText: "Umbra ($UMB) est un projet axé à 100% sur la communauté sur le réseau Base. Notre mission est de dynamiser l'écosystème à travers une liquidité solide sur Uniswap et une transparence totale."
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("langSelect").value;
+            const t = translations[lang];
+
+            document.getElementById("subtitle").innerText = t.subtitle;
+            document.getElementById("linksTitle").innerText = t.linksTitle;
+            document.getElementById("btnBuy").innerText = t.btnBuy;
+            document.getElementById("btnSocial").innerText = t.btnSocial;
+            document.getElementById("tokenomicsTitle").innerText = t.tokenomicsTitle;
+            document.getElementById("netLabel").innerText = t.netLabel;
+            document.getElementById("symLabel").innerText = t.symLabel;
+            document.getElementById("supLabel").innerText = t.supLabel;
+            document.getElementById("contractLabel").innerText = t.contractLabel;
+            document.getElementById("copyBtn").innerText = t.copyBtn;
+            document.getElementById("aboutTitle").innerText = t.aboutTitle;
+            document.getElementById("aboutText").innerText = t.aboutText;
+        }
+
         function copyContract() {
-            const address = document.getElementById("contractAddress").innerText;
+            const address = "0x153dc7b7C511D186d0AD6Fa338e12492E8b1DA77";
             navigator.clipboard.writeText(address);
-            alert("Adresse du contrat copiée !");
+            const btn = document.getElementById("copyBtn");
+            const lang = document.getElementById("langSelect").value;
+            btn.innerText = lang === 'fr' ? "Copié !" : "Copied!";
+            setTimeout(() => {
+                btn.innerText = lang === 'fr' ? "Copier" : "Copy";
+            }, 2000);
         }
     </script>
 </body>
