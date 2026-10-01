@@ -82,10 +82,22 @@
         .hero {
             text-align: center;
             padding: 10px 20px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            box-shadow: 0 0 25px rgba(0, 82, 255, 0.3);
+            object-fit: cover;
         }
         h1 {
             font-size: 3.5rem;
-            margin-bottom: 10px;
+            margin: 0;
             font-weight: 800;
             background: linear-gradient(135deg, #60a5fa 0%, #0052ff 100%);
             -webkit-background-clip: text;
@@ -243,6 +255,8 @@
     </header>
 
     <div class="hero">
+        <!-- Utilisation directe de ton fichier Logo (2).png -->
+        <img src="Logo%20(2).png" alt="Umbra Logo" class="logo-img">
         <h1>Umbra ($UMB)</h1>
         <p class="subtitle" id="hero-subtitle">Le token communautaire et décentralisé propulsé sur le réseau Base. Rapide, sécurisé et à frais ultra-réduits.</p>
     </div>
