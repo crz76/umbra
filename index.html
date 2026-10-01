@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbra ($UMB) — Official Base Token</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131d31;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 50px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .btn {
+            background-color: var(--accent-hover);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: #fff;
+        }
+        .contract-box {
+            background: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            word-break: break-all;
+            color: #38bdf8;
+            margin-top: 10px;
+        }
+        ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Umbra ($UMB)</h1>
+        <p class="subtitle">Le token communautaire et décentralisé sur le réseau Base. Rapide, sécurisé et à frais ultra-réduits.</p>
+    </header>
+
+    <div class="container">
+        <!-- Actions Rapides -->
+        <div class="card">
+            <h2>🚀 Liens Officiels</h2>
+            <div class="btn-group">
+                <a href="[Lien Uniswap Pool]" target="_blank" class="btn">Acheter sur Uniswap</a>
+                <a href="[Lien de ton post X / Giveaway]" target="_blank" class="btn btn-secondary">Participer au Giveaway (X)</a>
+            </div>
+        </div>
+
+        <!-- Infos Contrat & Tokenomics -->
+        <div class="card">
+            <h2>📊 Tokenomics & Contrat (Base Network)</h2>
+            <ul>
+                <li><strong>Réseau :</strong> Base (Chain ID: 8453)</li>
+                <li><strong>Symbole :</strong> $UMB</li>
+                <li><strong>Supply Totale :</strong> 1 000 000 UMB (Fixe)</li>
+            </ul>
+            <p style="margin-bottom: 5px; font-weight: bold; margin-top: 15px;">Adresse du Contrat :</p>
+            <div class="contract-box">[Colle ton adresse de contrat ici]</div>
+        </div>
+
+        <!-- Whitepaper / À propos -->
+        <div class="card">
+            <h2>📖 Whitepaper / Aperçu</h2>
+            <p><strong>[FR]</strong> Umbra ($UMB) est propulsé par la communauté sur Base. Notre mission est d'offrir un écosystème simple, transparent et axé sur l'engagement à travers des concours et une liquidité solide sur Uniswap.</p>
+            <p><strong>[EN]</strong> Umbra ($UMB) is a community-driven project built on Base. Our mission is to provide a simple, transparent ecosystem focused on community engagement and strong liquidity on Uniswap.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Umbra ($UMB). Built on Base. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
