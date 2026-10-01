@@ -8,12 +8,13 @@
     <style>
         :root {
             --bg-color: #07090e;
-            --card-bg: rgba(19, 29, 49, 0.7);
+            --card-bg: rgba(19, 29, 49, 0.75);
             --accent-color: #0052ff; /* Base Blue */
             --accent-hover: #0040cc;
             --text-color: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: rgba(255, 255, 255, 0.08);
+            --success-color: #10b981;
         }
         * {
             box-sizing: border-box;
@@ -34,9 +35,34 @@
             width: 100%;
             padding: 20px 40px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             max-width: 1000px;
+        }
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #34d399;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         .lang-select {
             background: var(--card-bg);
@@ -55,7 +81,7 @@
         }
         .hero {
             text-align: center;
-            padding: 20px 20px 40px;
+            padding: 10px 20px 30px;
         }
         h1 {
             font-size: 3.5rem;
@@ -68,7 +94,7 @@
         }
         p.subtitle {
             color: var(--text-muted);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             max-width: 650px;
             margin: 0 auto;
             line-height: 1.5;
@@ -107,7 +133,7 @@
         .btn {
             background-color: var(--accent-color);
             color: white;
-            padding: 14px 28px;
+            padding: 14px 24px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
@@ -117,7 +143,7 @@
             gap: 8px;
             box-shadow: 0 4px 14px rgba(0, 82, 255, 0.4);
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
         }
         .btn:hover {
             background-color: var(--accent-hover);
@@ -204,6 +230,10 @@
 <body>
 
     <header>
+        <div class="live-badge">
+            <div class="pulse-dot"></div>
+            <span id="badge-text">Live on Base</span>
+        </div>
         <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
             <option value="fr">🇫🇷 Français</option>
             <option value="en">🇬🇧 English</option>
@@ -223,7 +253,7 @@
             <h2 id="section-links">🚀 Liens Officiels</h2>
             <div class="btn-group">
                 <a href="https://app.uniswap.org/explore/tokens/base/0x153dc7b7c511d186d0ad6fa338e12492e8b1da77" target="_blank" class="btn" id="btn-uniswap">Acheter sur Uniswap</a>
-                <a href="https://x.com/intent/post?text=It's%20official!%20The%20Umbra%20($UMB)%20token%20has%20officially%20launched%20on%20Base!%20%F0%9F%%8F%20The%20liquidity%20pool%20is%20live%20on%20Uniswap%20v4%20with%20ultra-low%20fees.%20%F0%9F%%80%20%23UMB" target="_blank" class="btn btn-secondary" id="btn-giveaway">Participer au Giveaway (X)</a>
+                <a href="https://x.com" target="_blank" class="btn btn-secondary" id="btn-x">Communauté X (Twitter)</a>
             </div>
         </div>
 
@@ -242,21 +272,21 @@
             </div>
         </div>
 
-        <!-- À propos / Whitepaper -->
+        <!-- À propos -->
         <div class="card">
             <h2 id="section-about">📖 À propos du projet</h2>
             
             <div id="content-fr" class="lang-content active">
-                <p>Umbra ($UMB) est un projet axé à 100% sur la communauté sur le réseau Base. Notre mission est de dynamiser l'écosystème à travers des concours réguliers, une forte liquidité sur Uniswap et une transparence totale.</p>
+                <p>Umbra ($UMB) est un projet axé à 100% sur la communauté sur le réseau Base. Notre mission est de dynamiser l'écosystème à travers une liquidité solide sur Uniswap et une transparence totale.</p>
             </div>
             <div id="content-en" class="lang-content">
-                <p>Umbra ($UMB) is a 100% community-driven project built on the Base network. Our mission is to energize the ecosystem through regular contests, strong Uniswap liquidity, and total transparency.</p>
+                <p>Umbra ($UMB) is a 100% community-driven project built on the Base network. Our mission is to energize the ecosystem through strong Uniswap liquidity and total transparency.</p>
             </div>
             <div id="content-es" class="lang-content">
-                <p>Umbra ($UMB) es un proyecto 100% impulsado por la comunidad en la red Base. Nuestra misión es dinamizar el ecosistema a través de concursos regulares, fuerte liquidez en Uniswap y total transparencia.</p>
+                <p>Umbra ($UMB) es un proyecto 100% impulsado por la comunidad en la red Base. Nuestra misión es dinamizar el ecosistema a través de una fuerte liquidez en Uniswap y total transparencia.</p>
             </div>
             <div id="content-de" class="lang-content">
-                <p>Umbra ($UMB) ist ein zu 100% von der Community getragenes Projekt im Base-Netzwerk. Unsere Mission ist es, das Ökosystem durch regelmäßige Gewinnspiele, starke Uniswap-Liquidität und absolute Transparenz zu beleben.</p>
+                <p>Umbra ($UMB) ist ein zu 100% von der Community getragenes Projekt im Base-Netzwerk. Unsere Mission ist es, das Ökosystem durch starke Uniswap-Liquidität und absolute Transparenz zu beleben.</p>
             </div>
         </div>
     </div>
@@ -268,10 +298,11 @@
     <script>
         const translations = {
             fr: {
+                badge: "En direct sur Base",
                 subtitle: "Le token communautaire et décentralisé propulsé sur le réseau Base. Rapide, sécurisé et à frais ultra-réduits.",
                 links: "🚀 Liens Officiels",
                 uniswap: "Acheter sur Uniswap",
-                giveaway: "Participer au Giveaway (X)",
+                xProfile: "Communauté X (Twitter)",
                 tokenomics: "📊 Tokenomics & Contrat (Base)",
                 net: "Réseau",
                 sym: "Symbole",
@@ -282,10 +313,11 @@
                 about: "📖 À propos du projet"
             },
             en: {
+                badge: "Live on Base",
                 subtitle: "The decentralized community token powered by the Base network. Fast, secure, and ultra-low fees.",
                 links: "🚀 Official Links",
                 uniswap: "Buy on Uniswap",
-                giveaway: "Join X Giveaway",
+                xProfile: "X (Twitter) Community",
                 tokenomics: "📊 Tokenomics & Contract (Base)",
                 net: "Network",
                 sym: "Symbol",
@@ -296,10 +328,11 @@
                 about: "📖 About the Project"
             },
             es: {
+                badge: "En vivo en Base",
                 subtitle: "El token comunitario descentralizado impulsado en la red Base. Rápido, seguro y con tarifas ultrabajas.",
                 links: "🚀 Enlaces Oficiales",
                 uniswap: "Comprar en Uniswap",
-                giveaway: "Participar en Sorteo (X)",
+                xProfile: "Comunidad X (Twitter)",
                 tokenomics: "📊 Tokenomics y Contrato (Base)",
                 net: "Red",
                 sym: "Símbolo",
@@ -310,10 +343,11 @@
                 about: "📖 Acerca del Proyecto"
             },
             de: {
+                badge: "Live auf Base",
                 subtitle: "Der dezentrale Community-Token im Base-Netzwerk. Schnell, sicher und mit ultra-niedrigen Gebühren.",
                 links: "🚀 Offizielle Links",
                 uniswap: "Auf Uniswap kaufen",
-                giveaway: "Am Giveaway teilnehmen (X)",
+                xProfile: "X (Twitter) Community",
                 tokenomics: "📊 Tokenomics & Vertrag (Base)",
                 net: "Netzwerk",
                 sym: "Symbol",
@@ -321,16 +355,16 @@
                 contract: "Vertragsadresse:",
                 copy: "Kopieren",
                 copied: "Kopiert!",
-                about: "📖 Über das Projekt"
+                about: "Über das Projekt"
             }
         };
 
         function changeLanguage(lang) {
-            // Text updates
+            document.getElementById('badge-text').innerText = translations[lang].badge;
             document.getElementById('hero-subtitle').innerText = translations[lang].subtitle;
             document.getElementById('section-links').innerText = translations[lang].links;
             document.getElementById('btn-uniswap').innerText = translations[lang].uniswap;
-            document.getElementById('btn-giveaway').innerText = translations[lang].giveaway;
+            document.getElementById('btn-x').innerText = translations[lang].xProfile;
             document.getElementById('section-tokenomics').innerText = translations[lang].tokenomics;
             document.getElementById('net-label').innerText = translations[lang].net;
             document.getElementById('sym-label').innerText = translations[lang].sym;
@@ -339,7 +373,6 @@
             document.getElementById('copy-text').innerText = translations[lang].copy;
             document.getElementById('section-about').innerText = translations[lang].about;
 
-            // Description block toggling
             document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
             document.getElementById('content-' + lang).classList.add('active');
         }
